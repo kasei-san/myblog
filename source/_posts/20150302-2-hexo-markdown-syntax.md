@@ -15,6 +15,8 @@ $ hexo new "Vagrant で hexo 環境構築"
 [info] File created at /var/www/mypage/source/_posts/Vagrant-で-hexo-環境構築.md
 ```
 
+基本的にはマークダウンで、ヘッダに title やら、tag やらを設定する
+
 <!-- more -->
 
 ## 複数のタグを持たせたい場合は、yml の配列っぽい書き方を使う
@@ -102,9 +104,13 @@ total 168
 ![テスト](/2015/03/02/20150302-2-hexo-markdown-syntax/01.png)
 ```
 
+[timnew/hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res) なる、予期に計らってくれるらしいプラグインもあるけど、現状よきにはからってくれないらしい
+→ [asset_img doesn't work properly if a post has an excerpt · Issue #2 · timnew/hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res/issues/2)
+
 ## 参考
 
 - [【Hexo】Hexoにおける記事の書き方 | AdMax Tech Blog](http://tech.admax.ninja/2014/09/11/how-to-write-article-in-hexo/)
 - [Measure All The Things!!とHexoのタグプラグイン | masato's blog](http://masato.github.io/2014/06/27/measure-all-the-things-and-hexo-images/)
 - [HexoのAsset | 研究開発日誌](http://www.graco.c.u-tokyo.ac.jp/~tody/blog/2014/12/20/hexo-asset/)
+- [Tag Plugins | Hexo](http://hexo.io/docs/tag-plugins.html)
 
