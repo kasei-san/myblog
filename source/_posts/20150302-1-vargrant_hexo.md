@@ -120,7 +120,7 @@ $ rake spec
 
 ### テスト実装
 
-```spec/hexo_server/node_spec.rb
+{% codeblock spec/hexo_server/node_spec.rb %}
 require 'spec_helper'
 
 describe package 'nodejs' do
@@ -130,7 +130,7 @@ end
 describe package 'npm' do
   it { should be_installed.with_version('1.3.6') }
 end
-```
+{% endcodeblock %}
 
 ```sh-session
 git rm spec/hexo_server/sample_spec.rb
@@ -264,7 +264,7 @@ $ echo depends \'node\' >> metadata.rb
 $ cat <<EOF > recipes/default.rb
 include_recipe 'node'
 execute 'hexo install' do
-  command 'npm install -g hexo'
+  command 'npm install hexo-cli -g'
   not_if { File.exists?('/usr/bin/hexo') }
 end
 
@@ -308,9 +308,4 @@ http://192.168.33.10:4000/
 ![Hexo_-_Vimperator.png](https://qiita-image-store.s3.amazonaws.com/0/5329/4257f18d-b217-b324-62ee-8cd876395f51.png "Hexo_-_Vimperator.png")
 
 見れたー!!
-
-## Next
-
-- github-pageで公開
-
 
