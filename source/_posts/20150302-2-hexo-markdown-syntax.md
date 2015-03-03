@@ -1,12 +1,14 @@
-title: hexo でページを作ってみる
+title: hexo 記法色々メモ
 date: 2015-03-02 10:00:00
 tags:
 - hexo
 ---
 
-[Qiitaに書いた記事](http://qiita.com/kasei-san/items/55b075b302c6c7793396) をコピペしてみる
+初めてページ作ってみてわかったこと色々メモ
 
-## ページ作成
+<!-- more -->
+
+## ページ作成方法
 
 ```sh-session
 $ vagrant ssh 
@@ -16,8 +18,6 @@ $ hexo new "Vagrant で hexo 環境構築"
 ```
 
 基本的にはマークダウンで、ヘッダに title やら、tag やらを設定する
-
-<!-- more -->
 
 ## 複数のタグを持たせたい場合は、yml の配列っぽい書き方を使う
 
@@ -30,7 +30,9 @@ tags:
 ---
 {% endcodeblock %}
 
-## そのままだと、ファイル名が表示されないので、hexo 記法に変更
+## codeblock は、github記法だとファイル名が表示されない
+
+hexo 記法にする
 
 ### 例
 
@@ -38,18 +40,7 @@ tags:
 
 {% codeblock lang:md %}
 { % codeblock Vagrantfile lang:ruby % }
-## -*- mode: ruby -*-
-## vi: set ft=ruby :
-
-## All Vagrant configuration is done below. The "2" in Vagrant.configure
-## configures the configuration version (we support older styles for
-## backwards compatibility). Please don't change it unless you know what
-## you're doing.
-Vagrant.configure(2) do |config|
-  config.vm.box = "chef/centos-7.0"
-  config.vm.define :hexo_server do |hexo_server|
-  end
-end
+...
 { % endcodeblock  % }
 {% endcodeblock %}
 
@@ -88,29 +79,26 @@ total 168
 -rw-r--r--  1 kasei_san  staff  85933  3  2 17:30 01.png
 ```
 
-こんな風に書ける
+こんな風に書く
 
 ```
-![テスト](01.png)
+{% asset_img 01.png %}
 ```
 
 こんな風に表示される
 
-![テスト](01.png)
+{% asset_img 01.png %}
 
-ただ、このままだと相対pathなので、個別ページ以外だと正しく表示されないので、絶対PATHで書かなきゃいけないので面倒
 
+github記法で書くと、相対Pathになってしまうので、詳細ページ以外のディレクティブで表示できない
+
+```.md
+# これだと詳細ページ以外のディレクティブで表示できない!
+![](01.png)
 ```
-![テスト](/2015/03/02/20150302-2-hexo-markdown-syntax/01.png)
-```
-
-[timnew/hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res) なる、予期に計らってくれるらしいプラグインもあるけど、現状よきにはからってくれないらしい
-→ [asset_img doesn't work properly if a post has an excerpt · Issue #2 · timnew/hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res/issues/2)
 
 ## 参考
 
 - [【Hexo】Hexoにおける記事の書き方 | AdMax Tech Blog](http://tech.admax.ninja/2014/09/11/how-to-write-article-in-hexo/)
-- [Measure All The Things!!とHexoのタグプラグイン | masato's blog](http://masato.github.io/2014/06/27/measure-all-the-things-and-hexo-images/)
-- [HexoのAsset | 研究開発日誌](http://www.graco.c.u-tokyo.ac.jp/~tody/blog/2014/12/20/hexo-asset/)
 - [Tag Plugins | Hexo](http://hexo.io/docs/tag-plugins.html)
-
+- [Asset Folders | Hexo](http://hexo.io/docs/asset-folders.html)
