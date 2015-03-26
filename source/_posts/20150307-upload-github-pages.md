@@ -1,6 +1,8 @@
 title: Vagrant環境に作成したHexo環境から、Github Pages にアップロードしてみる
 date: 2015-03-07 17:49:01
-tags: Hexo Github
+tags:
+- Hexo
+- GitHub
 ---
 
 Vagrant環境に作成したHexo環境から、Github Pages にアップロードしてみる

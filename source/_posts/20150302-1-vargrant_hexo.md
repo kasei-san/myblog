@@ -1,8 +1,8 @@
 title: Vagrant で hexo 3 環境構築
 date: 2015-03-02 06:45:17
 tags:
-- hexo
-- vagrant
+- Hexo
+- Vagrant
 ---
 
 [こっち](http://qiita.com/kasei-san/items/55b075b302c6c7793396) でVagrant環境にHexoを導入する手順を書いたけど、
