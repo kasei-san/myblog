@@ -4,7 +4,6 @@ tags: Hexo Github
 ---
 
 Vagrant環境に作成したHexo環境から、Github Pages にアップロードしてみる
-ああああ
 
 <!-- more -->
 
